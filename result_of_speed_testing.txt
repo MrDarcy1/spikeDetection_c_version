@@ -7,7 +7,7 @@ ASO: 8e5 iterations: 27.9s
 
 thresholding 1000 iterations
 
-update freq: 1      27.6s
+update freq: 1    27.6s
 update freq: 100  28.4s
 update freq: 1000 27.6s
 
