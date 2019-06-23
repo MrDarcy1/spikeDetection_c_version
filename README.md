@@ -5,5 +5,7 @@ speedTest.c: A Script for testing the running speed of filtering, ASO, NEO and t
 
 dataPlot.py: Python program for thresholding result visuralisation
 
+
 functions: Important functions include add noise, filtering, ASO, NEO and thresholding
+
 utils: Some useful utils.
