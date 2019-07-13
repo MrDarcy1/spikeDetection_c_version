@@ -16,7 +16,7 @@ int main(){
     char loc_file_name[] = "D:/Study/DegreeProject/Codes/spikeDetection_c_version/data/spike_location_1.txt";
     char data_file_name[] = "D:/Study/DegreeProject/Codes/spikeDetection_c_version/data/realDataWithLFP_1.txt";
     char noise_file_name[] = "D:/Study/DegreeProject/Codes/spikeDetection_c_version/data/noise_base.txt";
-    int data_start = 10000;
+    int data_start = 1000;
     int num_of_data = 40000;
     int N = 0;
     double data[num_of_data];
@@ -73,12 +73,13 @@ int main(){
     float Acc = (float)count[0] / (float)(count[0] + count[1] + count[2]);
     printf("Sens: %f, FDR: %f, Acc: %f", Sens, FDR, Acc);
 
-
+    
     char thr_file_name[] = "D:/Study/DegreeProject/Codes/spikeDetection_c_version/data/threshold_1.txt";
     char processed_file_name[] = "D:/Study/DegreeProject/Codes/spikeDetection_c_version/data/Processed_Data_1.txt";
 
     writeData(threshold, num_of_data, thr_file_name);
     writeData(preprocessed_data, num_of_data, processed_file_name);
+    
     // printf("\n");
 
     // for (int i = 0; i < 10; i++){ //print  data

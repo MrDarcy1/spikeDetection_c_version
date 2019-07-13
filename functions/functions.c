@@ -138,6 +138,7 @@ int thresholding(list_node *spike_detected, list_node *interval, double *thresho
     to avoid the abroupt change of threshold after a spike and also avoid redetecting the same spike.
     3. A subthreshold is set to be half of the threshold and if the signal outnumber this thr. they will 
     also be replaced by the previous mean but not count as a spike
+
     parameters:
         spike_detected: detected spike locations
         threshold: adaptive threshold calculated with mean of the signal
@@ -154,7 +155,7 @@ int thresholding(list_node *spike_detected, list_node *interval, double *thresho
     int after = 10;
     int count = 0;
     int idx = 0;
-    int M = 0;
+    int M = 0; //number of spikes detected
     int indicator = 0;
     double pre_mean;  // contain the mean calculate from last updating, avoid division
     double init_threshold;
@@ -184,11 +185,13 @@ int thresholding(list_node *spike_detected, list_node *interval, double *thresho
         }
         else{ // spike detected
             M++;
+            // this step can be reduced in parctice
             if (i + after < N - 1) // find the maximum from the current location to 'after' data afterwards
                 idx = maxIndex(&data[i], after);
             else
                 idx = maxIndex(&data[i], N-i-1);
 
+            // this list data structure could be inefficient, it will iterate the hold list to insert in the end.
             if (indicator == 0){ // the fitst time, create  list
                 *spike_detected = *list_create(i + idx);
                 *interval = *list_create(i);
@@ -258,7 +261,7 @@ int thresholding(list_node *spike_detected, list_node *interval, double *thresho
     // // }
     writeData(data_for_thr, N, "D:/Study/DegreeProject/Codes/spikeDetection_c_version/data/data_for_thr_1.txt");
 
-    return M;
+    return M; //return the number of detected spikes 
 }
 
 

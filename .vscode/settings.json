@@ -9,7 +9,7 @@
             //"c": "cd $dir && clang '$fileName' -o '$fileNameWithoutExt.exe' -Wall -g -Og -static-libgcc --target=x86_64-w64-mingw -std=c11 && &'$dir$fileNameWithoutExt'", 
             //"cpp": "cd $dir && clang++ '$fileName' -o '$fileNameWithoutExt.exe' -Wall -g -Og -static-libgcc --target=x86_64-w64-mingw -std=c++17 && &'$dir$fileNameWithoutExt'" 
             "python": "$pythonPath -u $fullFileName",
-            "c": "cd $dir && clang $fileName -o $fileNameWithoutExt.exe ./utils/utils.c ./functions/functions.c ./utils/list.c -Wall -g -Og -static-libgcc --target=x86_64-w64-mingw -std=c11   && $dir$fileNameWithoutExt ", 
+            "c": "cd $dir && clang $fileName -o $fileNameWithoutExt.exe ./utils/utils.c ./functions/functions.c ./utils/list.c -Wall -g -static-libgcc --target=x86_64-w64-mingw -std=c11   && $dir$fileNameWithoutExt ", 
             "cpp": "cd $dir && clang++ $fileName -o $fileNameWithoutExt.exe -Wall -g -Og -static-libgcc --target=x86_64-w64-mingw -std=c++17 && $dir$fileNameWithoutExt" 
         }, // 控制code runner命令；未注释的仅适用于PowerShell（Win10默认），注释掉的适用于cmd（win7默认） 
         "code-runner.saveFileBeforeRun": true, // run code前保存 
@@ -39,7 +39,8 @@
         "files.associations": {
             "utils.h": "c",
             "functions.h": "c",
-            "stdlib.h": "c"
+            "stdlib.h": "c",
+            "stdio.h": "c"
         },
         "C_Cpp.dimInactiveRegions": false,
         "python.pythonPath": "D:\\Software\\anaconda3\\python.exe" // 效果比cpptools要好 
